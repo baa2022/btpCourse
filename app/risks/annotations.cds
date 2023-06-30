@@ -1,4 +1,5 @@
 using RiskService from '../../srv/risk-service';
+
 // Risk List Report Page
 annotate RiskService.Risks with @(UI: {
     HeaderInfo: {
@@ -13,7 +14,7 @@ annotate RiskService.Risks with @(UI: {
             Value: descr
         }
     },
-    SelectionFields: [prio],
+    SelectionFields: [prio, bp_BusinessPartner],
     Identification: [{
         Value: title
     }],
@@ -28,6 +29,9 @@ annotate RiskService.Risks with @(UI: {
             Value: owner
         },
         {
+            Value: bp_BusinessPartner
+        },
+        {
             Value: prio,
             Criticality: criticality
         },
@@ -37,6 +41,7 @@ annotate RiskService.Risks with @(UI: {
         },
     ],
 });
+
 // Risk Object Page
 annotate RiskService.Risks with @(UI: {
     Facets: [{
@@ -50,6 +55,9 @@ annotate RiskService.Risks with @(UI: {
             },
             {
                 Value: owner
+            },
+            {
+                Value: bp_BusinessPartner
             },
             {
                 Value: prio,
