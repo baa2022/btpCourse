@@ -13,7 +13,8 @@
     "@sap-cloud-sdk/http-client": "^2.5.0",
     "@sap/cds": "^6",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "express": "^4"
+    "express": "^4",
+    "passport": "^0.6.0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.108.7",
@@ -21,7 +22,8 @@
   },
   "scripts": {
     "start": "cds run",
-    "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch": "cds watch --profile hybrid"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -48,19 +50,25 @@
       "require-atomic-updates": "off"
     }
   },
-
+  "sapux": [
+    "app/risks"
+  ],
   "cds": {
     "requires": {
       "API_BUSINESS_PARTNER": {
         "kind": "odata",
         "model": "srv/external/API_BUSINESS_PARTNER",
-        "credentials": {
-          "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
+        "[hybrid]": {
+          "credentials": {
+            "destination": "business-partner"
+          }
+        },
+        "[development]": {
+          "credentials": {
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
+          }
         }
       }
     }
-  },
-  "sapux": [
-    "app/risks"
-  ]
+  }
 }

@@ -73,7 +73,7 @@ module.exports = cds.service.impl(async function () {
         req.query.SELECT.columns.splice(expandIndex, 1);
         if (
             !req.query.SELECT.columns.find((column) =>
-                column.ref.find((ref) => ref == "bp_BusinessPartner")
+                column.ref?.find((ref) => ref == "bp_BusinessPartner")
             )
         ) {
             req.query.SELECT.columns.push({
