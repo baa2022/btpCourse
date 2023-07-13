@@ -10,12 +10,13 @@ module.exports = cds.service.impl(async function () {
         Risks,
         BusinessPartners
     } = this.entities;
+    debugger
     /**
      * Set criticality after a READ operation on /risks
      */
     this.after("READ", Risks, (data) => {
         const risks = Array.isArray(data) ? data : [data];
-
+debugger
         risks.forEach((risk) => {
             if (risk.impact >= 100000) {
                 risk.criticality = 1;

@@ -77,5 +77,5 @@ annotate rm.Risks with {
                 }
             ]
         }
-    })
+    });
 }

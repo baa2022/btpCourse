@@ -1,0 +1,9 @@
+{
+  "xsappname": "risk-management-dev",
+  "oauth2-configuration": {
+    "redirect-uris": ["https://f9e2d494trial-dev-risk-management.cfapps.us10-001.hana.ondemand.com/*"]
+  },
+  "scopes": [],
+  "attributes": [],
+  "role-templates": []
+}
