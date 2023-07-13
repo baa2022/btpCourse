@@ -62,7 +62,7 @@
         "model": "srv/external/API_BUSINESS_PARTNER",
         "[hybrid]": {
           "credentials": {
-            "destination": "business-partner"
+            "destination": "API_BUSINESS_PARTNER"
           }
         },
         "[development]": {
@@ -72,7 +72,7 @@
         },
         "[production]": {
           "credentials": {
-            "destination": "business-partner"
+            "destination": "API_BUSINESS_PARTNER"
           }
         }
       },

@@ -49,6 +49,7 @@ modules:
           url: ~{srv-url}
           forwardAuthToken: true
       - name: risk-management-auth
+      - name: business-partner
 
 resources:
   - name: risk-management-db
@@ -69,7 +70,8 @@ resources:
           # example: - https://risk-management-approuter.cfapps.eu10-004.hana.ondemand.com/login/callback
           - https://f9e2d494trial-dev-risk-management.cfapps.us10-001.hana.ondemand.com/login/callback
   - name: business-partner
-    type: org.cloudfoundry.managed-service
+    type: org.cloudfoundry.existing-service
     parameters:
-     service: destination
-     service-plan: lite
+      service-name: business-partner
+      service-plan: lite
+      service: destination
