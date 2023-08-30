@@ -41,10 +41,7 @@ module.exports = cds.service.impl(async function () {
         }
         delete req.query.SELECT.count;
         return await BPsrv.transaction(req).send({
-            query: req.query,
-            headers: {
-                apikey: process.env.apikey,
-            },
+            query: req.query
         });
     });
 
@@ -96,9 +93,6 @@ module.exports = cds.service.impl(async function () {
                                 BusinessPartner: risk.bp_BusinessPartner
                             })
                             .columns(["BusinessPartner", "LastName", "FirstName"]),
-                        headers: {
-                            apikey: process.env.apikey,
-                        },
                     });
                     risk.bp = bp;
                 })

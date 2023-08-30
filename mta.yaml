@@ -64,11 +64,21 @@ resources:
       service-plan: application
       path: ./xs-security.json
       config:
+        xsappname: risk-management-dev
         tenant-mode: dedicated
         oauth2-configuration: # <-- add this
           redirect-uris:
           # example: - https://risk-management-approuter.cfapps.eu10-004.hana.ondemand.com/login/callback
-          - https://f9e2d494trial-dev-risk-management.cfapps.us10-001.hana.ondemand.com/login/callback
+          - http*://*.cfapps.us10-001.hana.ondemand.com/**
+        role-collections:
+        - name: 'RiskManager-${space}'
+          description: Manage Risks
+          role-template-references:
+          - $XSAPPNAME.RiskManager
+        - name: 'RiskViewer-${space}'
+          description: View Risks
+          role-template-references:
+          - $XSAPPNAME.RiskViewer
   - name: business-partner
     type: org.cloudfoundry.existing-service
     parameters:
